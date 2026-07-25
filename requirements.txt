@@ -1,0 +1,57 @@
+# =============================================================================
+# RecSys Challenge 2026 - FPMs_UMONS pipeline
+# Single environment covering training, inference and evaluation.
+#
+#   pip install -r requirements.txt
+#
+# Torch is pinned to 2.11.0 because vLLM pins it exactly. Every other component
+# accepts it (accelerate >=2.0, peft >=1.13, sentence-transformers >=1.11), so
+# one environment is enough. Install with the default PyPI wheels: they are
+# CUDA-enabled and match what vLLM is built against.
+# =============================================================================
+
+# --- Torch stack (version dictated by vLLM's hard pin) -----------------------
+torch==2.11.0
+torchvision==0.26.0
+torchaudio==2.11.0
+
+# --- Pipeline core (retrieval + reranking + generation) ----------------------
+transformers==5.5.4
+accelerate==1.13.0
+peft==0.19.1
+datasets==4.8.5
+sentence-transformers==5.4.1
+bm25s==0.3.4
+pandas==3.0.2
+huggingface_hub
+pyarrow
+numpy
+tqdm
+
+# --- Fast LLM inference (full-dev generation, judge panel) -------------------
+# Requires transformers>=5.5.3, satisfied by the pin above.
+vllm==0.25.1
+
+# --- Response generation and local judge (Gemma) -----------------------------
+# The Gemma checkpoints used for generation and judging carry a TimmWrapperModel
+# vision tower, so Transformers refuses to load them without timm
+# ("ImportError: TimmWrapperModel requires the timm library"). Not pulled in by
+# transformers or vLLM, and the failure only surfaces at generation time - after
+# retrieval and reranking have already run - so it is pinned here explicitly.
+timm==1.0.28
+# --- FFmpeg shared libraries for TorchCodec / sentence-transformers ----------
+# PyAV bundles FFmpeg inside the virtualenv; patch-torchcodec makes TorchCodec
+# discover those libav*.so files without requiring a system FFmpeg install.
+patch-torchcodec==0.1.4
+
+# --- Analysis & figures ------------------------------------------------------
+scikit-learn==1.8.0
+scipy==1.17.1
+matplotlib==3.10.8
+
+# --- Explanation-quality metrics (Section: Beyond the Judge Score) -----------
+nltk==3.10.0
+rouge-score
+bert-score
+sacrebleu
+mauve-text

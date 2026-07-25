@@ -1,0 +1,117 @@
+{
+  "_comment": [
+    "Pinned Hugging Face revisions and SHA-256 checksums for every released artifact.",
+    "scripts/download_models.py downloads at these exact revisions and verifies the",
+    "checksums, so you get bit-identical inputs to the published results.",
+    "Regenerate after publishing new weights: python scripts/download_models.py --write_manifest"
+  ],
+  "generated": "2026-07-25",
+  "components": {
+    "retriever": {
+      "repo": "MaximeM/Qwen3-Embedding-4B-recsys-challenge-2026-retriever-ctx1024",
+      "repo_type": "model",
+      "revision": "8d0d125d0ceda726d1e5f108e7a45535a090b354",
+      "files": {
+        "model.safetensors": {
+          "sha256": "6d634c679d0ceb693e88c7f6447673fb5200e87b32eeb689be0efc9b28858037",
+          "size": 8043592168
+        },
+        "tokenizer.json": {
+          "sha256": "31f82e8f8c173bff1b34626d065393d33938f6d27a7448cfb706bbf9d3c0e651",
+          "size": 11422943
+        }
+      }
+    },
+    "scorehead": {
+      "repo": "MaximeM/Qwen3-8B-recsys-challenge-2026-scorehead-top200",
+      "repo_type": "model",
+      "revision": "aa7689357b3818abd8a3585a065e807740e622b8",
+      "files": {
+        "model.safetensors": {
+          "sha256": "b02960d71927ac4fe0d60eca18ad259e342466955d5b0bd77c00182dd8512b86",
+          "size": 15136854944
+        },
+        "score_head.pt": {
+          "sha256": "192f7d6d669063e92b7a5b44c7a3d3f2ff5291bc4c113d25a97e1a2f6b9de68d",
+          "size": 9918
+        },
+        "tokenizer.json": {
+          "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506",
+          "size": 11422650
+        }
+      }
+    },
+    "scorehead-llama-top200": {
+      "repo": "MaximeM/Llama-3.2-3B-recsys-challenge-2026-scorehead-top200",
+      "repo_type": "model",
+      "revision": "5c8eee176f2877ff589bdc79858798b44e9f0ad6",
+      "files": {
+        "model.safetensors": {
+          "sha256": "add9e633b1cd90f9d8bd6e402f8e9291ec3dab076bd1d6aae65a72539cadf0f3",
+          "size": 6425527584
+        },
+        "score_head.pt": {
+          "sha256": "f66e789de148d73ef64cfcd0139b94a337526ccb235f57eb8205db9df3888a8e",
+          "size": 7870
+        },
+        "tokenizer.json": {
+          "sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+          "size": 17209920
+        }
+      }
+    },
+    "scorehead-llama-top50": {
+      "repo": "MaximeM/Llama-3.2-3B-recsys-challenge-2026-scorehead-top50",
+      "repo_type": "model",
+      "revision": "9803e83094c84f6b399a13163df1308f9801527d",
+      "files": {
+        "model.safetensors": {
+          "sha256": "006eec6571ffb7c3c3f63d7e84b48615b8d2d192fd10e3cb911c8b1de6854139",
+          "size": 6425527584
+        },
+        "score_head.pt": {
+          "sha256": "afea6383820f430f8fa9863be0401132d20fb60c86700adb686948b12b5436d6",
+          "size": 7870
+        },
+        "tokenizer.json": {
+          "sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+          "size": 17209920
+        }
+      }
+    },
+    "firstpos": {
+      "repo": "MaximeM/Llama-3.2-3B-recsys-challenge-2026-firstpos-intent-mm",
+      "repo_type": "model",
+      "revision": "9b2b77b192c69ae05d409b4ed5818bc11a7d769f",
+      "files": {
+        "model.safetensors": {
+          "sha256": "d5c00dfaa530ca2661e98177517ccf238e2f84811c4927e81f978c29cc76af23",
+          "size": 6425529112
+        },
+        "tokenizer.json": {
+          "sha256": "6b9e4e7fb171f92fd137b777cc2714bf87d11576700a1dcd7a399e7bbe39537b",
+          "size": 17209920
+        }
+      }
+    },
+    "artifacts": {
+      "repo": "MaximeM/recsys-challenge-2026-artifacts",
+      "repo_type": "dataset",
+      "revision": "c4fb00ddba3279f5444db044a06919e937bc5dd2",
+      "files": {
+        "content_desc_full.json": {
+          "sha256": "01fb94dccda594f1bfec1499443b4b0d08ab2b504913eebbe65073519d692c92",
+          "size": 6000145
+        },
+        "pools/combined_pool_ctx1024_blindB.parquet": {
+          "sha256": "7ed78179fde4dc5383921ac7e6df8eebdbf1dd2b97844650d3924151e79ed557",
+          "size": 82321
+        },
+        "pools/combined_pool_ctx1024_dev.parquet": {
+          "sha256": "49b3964692179f43490bf5d0834ed55fea992453abc71ea7102465aae8b36568",
+          "size": 15298039
+        }
+      }
+    }
+  }
+}
