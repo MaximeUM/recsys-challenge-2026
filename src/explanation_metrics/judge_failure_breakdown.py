@@ -3,7 +3,7 @@ This is intended for the appendix. Two levels are available depending on run out
   - ALL judges (scores_*.parquet, with a 'cond' column from the start): number of zero-score
     rows remaining in the FINAL file for each condition.
   - Judges run with retry-on-failure (diag_*.parquet, added July 16): also report how many
-    evaluations needed at least one retry and how many remain unrecoverable after three attempts.
+    evaluations needed at least one retry and how many remain unrecoverable after five retries.
     This exposes the REAL pre-correction failure rate, whereas scores_*.parquet only shows failures
     remaining after correction.
 

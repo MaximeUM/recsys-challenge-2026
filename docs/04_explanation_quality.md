@@ -135,7 +135,7 @@ independently under neutral labels, making the comparison paired.
 | Trust | **3.96** / 3.73 | **4.09** / 3.85 | **4.60** / 4.30 | **4.26** / 4.03 | **4.76** / 4.32 |
 | Satisfaction | **4.39** / 4.05 | **4.83** / 4.54 | **4.96** / 4.86 | **4.82** / 4.56 | **4.87** / 4.64 |
 
-*"think" columns are the 3-seed average of the thinking mode (spread ≤ 0.01).
+*"think" columns are the 3-seed average of the thinking mode (spread ≤ 0.02).
 Every cell is regenerated from the raw judge outputs by
 `src/explanation_metrics/aggregate_userstudy_table.py`, which applies the
 published protocol (7909 turns) and writes
@@ -162,7 +162,7 @@ retries in any run — recomputed by `judge_failure_breakdown.py`.
 
 | Script | Role |
 |---|---|
-| `build_dev_responses.py` | samples dev sessions, runs the reranker picks, shards for parallel generation |
+| `build_dev_responses.py` | samples dev sessions, reads the reranker picks, shards for parallel generation |
 | `reference_free_metrics.py` | distinct-n, USR, openings, mention rates, FMR/FCR, BLEU/ROUGE/BERTScore, MAUVE |
 | `robustness_metrics.py` | self-BLEU, intra-session repetition, GPT-2 perplexity, per-turn stability |
 | `userstudy_dimensions.py` | the seven Likert items, administered by one judge (shardable, `--vllm`, `--thinking`) |
@@ -176,6 +176,16 @@ official evaluator, so clone it at the repo root first (see
 [`data/README.md`](../data/README.md)).
 
 ## Commands
+
+**Prerequisite:** this chain reads the reranker picks
+(`exp/picks/picks_shqwen8b_*.parquet`), it does not produce them. Run the dev
+prediction step of [reranking](02_reranking.md) first — otherwise
+`build_dev_responses.py` exits immediately.
+
+**Hugging Face access:** some of the models pulled by the chain are gated —
+public, but requiring their licence to be accepted first. Export `HF_TOKEN` (or
+`hf auth login`) for an account that has access to all of them. Otherwise
+generation fails.
 
 ```bash
 # the whole full-dev suite (long: generation on 4 GPUs, then 9 judge runs)
@@ -195,14 +205,15 @@ python src/explanation_metrics/robustness_metrics.py \
     --drop_unknown \
     --dev_resp exp/inference/devset/shqwen8b_fulldev_convbestofN.json
 
-# one judge, 4-way sharded
+# one judge, 4-way sharded. VLLM_BATCH_INVARIANT=1 is what makes this
+# bit-reproducible; run_fulldev_evals.sh exports it, a manual run must too.
+export VLLM_BATCH_INVARIANT=1
 for i in 0 1 2 3; do
   CUDA_VISIBLE_DEVICES=$i python src/explanation_metrics/userstudy_dimensions.py \
       --shard $i --nshards 4 --vllm --judge google/gemma-4-E2B-it \
       --tag fulldev_gemma4 --seed 2026 \
       --dev_resp exp/inference/devset/shqwen8b_fulldev_convbestofN.json &
 done; wait
-python src/explanation_metrics/userstudy_dimensions.py --combine
 
 # regenerate the published table + its CSV (applies the 7909-turn protocol)
 python src/explanation_metrics/aggregate_userstudy_table.py

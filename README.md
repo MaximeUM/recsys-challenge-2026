@@ -377,7 +377,7 @@ cut from the paper for space.*
 | Trust | **3.96** / 3.73 | **4.09** / 3.85 | **4.60** / 4.30 | **4.26** / 4.03 | **4.76** / 4.32 |
 | Satisfaction | **4.39** / 4.05 | **4.83** / 4.54 | **4.96** / 4.86 | **4.82** / 4.56 | **4.87** / 4.64 |
 
-*Ours (bold) / gold. "think" = 3-seed average of the thinking mode (spread ≤ 0.01).*
+*Ours (bold) / gold. "think" = 3-seed average of the thinking mode (spread ≤ 0.02).*
 
 The gold replies are genuinely good (dimension means 3.4–4.9), but ours score
 higher on **every dimension under every judge** (+0.1 to +0.4 per dimension).

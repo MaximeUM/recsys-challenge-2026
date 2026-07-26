@@ -123,6 +123,8 @@ SETS = [
 ]
 print('\n=== Self-BLEU (SIGIR 2018; LOWER = more diverse, high means mode collapse) ===')
 for label, p in SETS:
+    if not os.path.exists(p):
+        print(f'!! missing: {p}'); continue
     R = [e['predicted_response'] for e in json.load(open(p))]
     print(f'  {label:34s} {self_bleu(R):.4f} (n={len(R)})')
 Rgen = [e['predicted_response'] for e in gen]; Rgold = [e['predicted_response'] for e in gold]
@@ -151,5 +153,7 @@ def ppl(R):
 print('\n=== GPT-2-large perplexity (fluency; lower is more fluent) ===')
 print(f'  dev generated: {ppl(Rgen):.1f} | dev gold: {ppl(Rgold):.1f}')
 for label, p in SETS:
+    if not os.path.exists(p):
+        print(f'!! missing: {p}'); continue
     R = [e['predicted_response'] for e in json.load(open(p))]
     print(f'  {label:34s} {ppl(R):.1f}')

@@ -53,6 +53,7 @@ for si, sid in enumerate(sample):
             'predicted_track_ids': [top1], 'predicted_response': ''})
 
 OUT = Path('exp/inference/devset')
+OUT.mkdir(parents=True, exist_ok=True)
 tot = 0
 for i, sh in enumerate(shards):
     p = OUT/f'{a.prefix}_shard{i}.json'
