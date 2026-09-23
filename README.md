@@ -9,11 +9,11 @@ every component from scratch. The explanation-quality evaluation suite behind
 the paper's "Beyond the Judge Score" section is included, in
 [`src/explanation_metrics/`](docs/04_explanation_quality.md).
 
-> Maxime Manderlier and Fabian Lecron. *Picking is Not Ranking, and Explanation
-> Quality Has Many Dimensions: Lessons for Conversational Music Recommendation.*
-> RecSys Challenge 2026.
-> Department of Technological Innovation Management, Faculty of Engineering,
-> University of Mons (UMONS), Belgium.
+> Maxime Manderlier and Fabian Lecron. 2026. *Picking is Not Ranking, and
+> Explanation Quality Has Many Dimensions: Lessons for Conversational Music
+> Recommendation.* In Proceedings of the Workshop on the ACM RecSys Challenge
+> (Minneapolis, MN, USA) (RecSysChallenge '26). Association for Computing
+> Machinery, New York, NY, USA, 71–76. https://doi.org/10.1145/3842413.3842426
 
 ---
 
@@ -364,7 +364,9 @@ the two corpora are nearly separable, i.e. we do not imitate the Gemini house
 style.
 
 **User-study dimensions.** We administer the seven-item questionnaire from our
-prior user study on recommendation explanations to a panel of open-weight LLM
+prior 326-participant user study on recommendation explanations
+([Manderlier et al., IntRS'25](https://ceur-ws.org/Vol-4027/paper2.pdf); see
+[Citation](#citation)), reused as-is, to a panel of open-weight LLM
 judges standing in for human raters. Each response and gold reply is scored
 independently under neutral labels, so the comparison is paired. *This table was
 cut from the paper for space.*
@@ -470,6 +472,62 @@ repository does not yet regenerate a result end to end.
 - The system is specific to English, TalkPlayData-style conversations.
 - The challenge ships embeddings only, and we used **no external resources**.
   With raw audio, lyrics or cover images, different designs would open up.
+
+## Citation
+
+If you use this code or build on our results, please cite our paper:
+
+> Maxime Manderlier and Fabian Lecron. 2026. *Picking is Not Ranking, and
+> Explanation Quality Has Many Dimensions: Lessons for Conversational Music
+> Recommendation.* In Proceedings of the Workshop on the ACM RecSys Challenge
+> (Minneapolis, MN, USA) (RecSysChallenge '26). Association for Computing
+> Machinery, New York, NY, USA, 71–76. https://doi.org/10.1145/3842413.3842426
+
+```bibtex
+@inproceedings{10.1145/3842413.3842426,
+author = {Manderlier, Maxime and Lecron, Fabian},
+title = {Picking is Not Ranking, and Explanation Quality Has Many Dimensions: Lessons for Conversational Music Recommendation},
+year = {2026},
+isbn = {9798400728631},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3842413.3842426},
+doi = {10.1145/3842413.3842426},
+booktitle = {Proceedings of the Workshop on the ACM RecSys Challenge},
+pages = {71--76},
+numpages = {6},
+location = {Minneapolis, MN, USA},
+series = {RecSysChallenge '26}
+}
+```
+
+The user-study dimensions used in the explanation-quality evaluation come from
+our previous work. If you use them, please also cite:
+
+> Maxime Manderlier, Fabian Lecron, Olivier Vu Thanh, and Nicolas Gillis. 2025.
+> *From Latent Factors to Language: a User Study on LLM-generated Explanations
+> for an Inherently Interpretable Matrix-based Recommender System.* In
+> Proceedings of the 12th Joint Workshop on Interfaces and Human Decision Making
+> for Recommender Systems (IntRS 2025), co-located with the 19th ACM Conference
+> on Recommender Systems (RecSys 2025) (Prague, Czech Republic). CEUR Workshop
+> Proceedings, Vol. 4027. https://ceur-ws.org/Vol-4027/paper2.pdf
+
+```bibtex
+@inproceedings{manderlier2025latent,
+  author       = {Manderlier, Maxime and Lecron, Fabian and Vu Thanh, Olivier and Gillis, Nicolas},
+  title        = {From Latent Factors to Language: a User Study on LLM-generated Explanations
+                  for an Inherently Interpretable Matrix-based Recommender System},
+  booktitle    = {Proceedings of the 12th Joint Workshop on Interfaces and Human Decision
+                  Making for Recommender Systems (IntRS 2025) co-located with 19th {ACM}
+                  Conference on Recommender Systems (RecSys 2025), Prague, Czech Republic,
+                  September 22, 2025},
+  series       = {{CEUR} Workshop Proceedings},
+  volume       = {4027},
+  publisher    = {CEUR-WS.org},
+  year         = {2025},
+  url          = {https://ceur-ws.org/Vol-4027/paper2.pdf}
+}
+```
 
 ## Acknowledgements
 

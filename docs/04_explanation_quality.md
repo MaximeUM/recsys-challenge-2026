@@ -119,8 +119,9 @@ cannot be queried on the gold replies.
 
 ## User-study dimensions, via a judge panel
 
-We administer the questionnaire from our prior user study on recommendation
-explanations — seven Likert items (1–5) covering transparency, effectiveness,
+We administer the questionnaire from our prior 326-participant user study on
+recommendation explanations ([Manderlier et al., IntRS'25](https://ceur-ws.org/Vol-4027/paper2.pdf);
+see [Citation](../README.md#citation)), reused as-is — seven Likert items (1–5) covering transparency, effectiveness,
 persuasion, trust and satisfaction — to a panel of open-weight LLM judges
 standing in for human raters. Each response and gold reply is scored
 independently under neutral labels, making the comparison paired.

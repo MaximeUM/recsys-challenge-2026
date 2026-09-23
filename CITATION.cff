@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this code or build on our results, please cite our paper."
+title: "Picking is Not Ranking, and Explanation Quality Has Many Dimensions: Lessons for Conversational Music Recommendation"
+type: software
+license: MIT
+repository-code: "https://github.com/MaximeUM/recsys-challenge-2026"
+authors:
+  - family-names: Manderlier
+    given-names: Maxime
+    orcid: "https://orcid.org/0000-0002-5641-9818"
+    affiliation: "University of Mons (UMONS)"
+  - family-names: Lecron
+    given-names: Fabian
+    orcid: "https://orcid.org/0000-0002-6516-0086"
+    affiliation: "University of Mons (UMONS)"
+preferred-citation:
+  type: conference-paper
+  title: "Picking is Not Ranking, and Explanation Quality Has Many Dimensions: Lessons for Conversational Music Recommendation"
+  authors:
+    - family-names: Manderlier
+      given-names: Maxime
+      orcid: "https://orcid.org/0000-0002-5641-9818"
+      affiliation: "University of Mons (UMONS)"
+    - family-names: Lecron
+      given-names: Fabian
+      orcid: "https://orcid.org/0000-0002-6516-0086"
+      affiliation: "University of Mons (UMONS)"
+  collection-title: "Proceedings of the Workshop on the ACM RecSys Challenge"
+  conference:
+    name: "RecSysChallenge '26"
+    city: Minneapolis
+    region: MN
+    country: US
+  publisher:
+    name: "Association for Computing Machinery"
+    city: "New York"
+    region: NY
+    country: US
+  year: 2026
+  start: 71
+  end: 76
+  isbn: "9798400728631"
+  doi: "10.1145/3842413.3842426"
+  url: "https://doi.org/10.1145/3842413.3842426"
